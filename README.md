@@ -11,8 +11,8 @@ The program was created using:
 
 ## Installation and Launch
 
-    Download and extract the Console-Finance-Tracker archive from the [releases](https://github.com/qwert312/Console-Finance-Tracker/releases/latest).
-    Run start.bat
+* Download and extract the Console-Finance-Tracker archive from the [releases](https://github.com/qwert312/Console-Finance-Tracker/releases/latest).
+* Run start.bat
 
 To work with the source code, simply download and extract the Source archive from the same location, and then open the Console-Finance-Tracker-1.0.0 folder.
 
