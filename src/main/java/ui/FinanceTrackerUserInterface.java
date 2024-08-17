@@ -156,7 +156,7 @@ public class FinanceTrackerUserInterface {
 
     private void saveCurrentTransactionsToFile()
             throws NoTransactionsException, FileFormatException, FileCreationException, FileNotFoundException {
-        System.out.println("Enter the file absolute path. " +
+        System.out.println("Enter the .csv file absolute path. " +
                 "File will be created, if it doesn't exist, but it must be created in an existing directory.");
         Path filePath = enterFilePath();
 
@@ -169,11 +169,11 @@ public class FinanceTrackerUserInterface {
         try {
             filePath = Paths.get(filePathString);
         } catch (InvalidPathException e) {
-            throw new InvalidPathException(filePathString, "Incorrect path format.");
+            throw new InvalidPathException(filePathString, "Incorrect path format");
         }
 
         if (!filePath.isAbsolute())
-            throw new InvalidPathException(filePathString, "The path must be absolute.");
+            throw new InvalidPathException(filePathString, "The path must be absolute");
 
         return filePath;
     }

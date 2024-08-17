@@ -148,7 +148,6 @@ public class FinanceTracker {
         if (transactions.isEmpty())
             throw new NoTransactionsException("No transactions to save.");
 
-        ensureFileCanBeCreated(filePath);
         createFileIfNotExists(filePath);
         ensureFileIsExistsAndWritable(filePath);
         ensureFileHasCorrectType(filePath);
@@ -164,17 +163,9 @@ public class FinanceTracker {
         }
     }
 
-    private void ensureFileCanBeCreated(Path filePath) throws FileCreationException {
-        try {
-            Path tempFilePath = Files.createTempFile(filePath.getParent(), "temp", ".csv");
-            File tempFile = new File(tempFilePath.toUri());
-            tempFile.delete();
-        } catch (IOException e) {
-            throw new FileCreationException("File can't be created: " + filePath);
-        }
-    }
-
     private void createFileIfNotExists(Path filePath) throws FileCreationException {
+        ensureFileCanBeCreated(filePath);
+
         try {
             if (Files.notExists(filePath)) {
                 Files.createFile(filePath);
@@ -182,6 +173,16 @@ public class FinanceTracker {
         } catch (IOException e) {
             throw new FileCreationException("Unknown I/O exception occurred during file or directory creation: "
                     + filePath);
+        }
+    }
+
+    private void ensureFileCanBeCreated(Path filePath) throws FileCreationException {
+        try {
+            Path tempFilePath = Files.createTempFile(filePath.getParent(), "temp", ".csv");
+            File tempFile = new File(tempFilePath.toUri());
+            tempFile.delete();
+        } catch (IOException e) {
+            throw new FileCreationException("File can't be created: " + filePath);
         }
     }
 
