@@ -14,7 +14,7 @@ import java.util.stream.Stream;
 
 public class FinanceTracker {
     private static int lastFreeID = 0;
-    private HashMap<Integer, Transaction> transactions = new HashMap<Integer, Transaction>();
+    private HashMap<Integer, Transaction> transactions = new HashMap<>();
     public BigDecimal balance = new BigDecimal(0);
 
     public BigDecimal getBalance() {
@@ -85,10 +85,10 @@ public class FinanceTracker {
 
     private void ensureFileIsExistAndReadable(Path filePath) throws FileFormatException, FileNotFoundException {
         if (!Files.exists(filePath))
-            throw new FileNotFoundException("File doesn't exist: " + filePath.toString());
+            throw new FileNotFoundException("File doesn't exist: " + filePath);
 
         if (!Files.isReadable(filePath)) {
-            throw new FileFormatException("File isn't readable: " + filePath.toString());
+            throw new FileFormatException("File isn't readable: " + filePath);
         }
     }
 
@@ -187,9 +187,9 @@ public class FinanceTracker {
 
     public void ensureFileIsExistsAndWritable(Path filePath) throws FileNotFoundException {
         if (!Files.exists(filePath))
-            throw new FileNotFoundException("File doesn't exist: " + filePath.toString());
+            throw new FileNotFoundException("File doesn't exist: " + filePath);
 
         if (!Files.isWritable(filePath))
-            throw new FileNotFoundException("File isn't writable: " + filePath.toString());
+            throw new FileNotFoundException("File isn't writable: " + filePath);
     }
 }
