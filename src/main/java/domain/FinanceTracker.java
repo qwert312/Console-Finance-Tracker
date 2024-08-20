@@ -2,18 +2,29 @@ package domain;
 
 import exceptions.*;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+
 import java.math.BigDecimal;
+
 import java.nio.file.Files;
 import java.nio.file.Path;
+
 import java.time.DateTimeException;
 import java.time.LocalDateTime;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.Stream;
 
 public class FinanceTracker {
-    private static int lastFreeID = 0;
+    private int lastFreeID = 0;
     private HashMap<Integer, Transaction> transactions = new HashMap<>();
     public BigDecimal balance = new BigDecimal(0);
 
@@ -77,7 +88,7 @@ public class FinanceTracker {
 
         HashMap<Integer, Transaction> transactionsCopy = copyTransactions();
         int copyOfLastFreeId = lastFreeID;
-        transactions.clear();
+        transactions = new HashMap<>();
         lastFreeID = 0;
 
         safelyAddTransactionsFromFile(filePath, transactionsCopy, copyOfLastFreeId);
@@ -101,9 +112,10 @@ public class FinanceTracker {
         try (Stream<String> lines = Files.lines(filePath)) {
             if (!lines.allMatch(line -> line.contains(",") || line.split(",").length == 3))
                 throw new FileFormatException("Lines in the file must contains 3 values each!");
-        }
-        catch (IOException e) {
-            throw new RuntimeException("Unexpected IO exception during file processing", e);
+        } catch (FileFormatException e) {
+            throw e;
+        } catch (IOException e) {
+            throw new RuntimeException("Unexpected IO exception during file processing.", e);
         }
     }
 
@@ -132,7 +144,7 @@ public class FinanceTracker {
 
                 lineNumber++;
             }
-        } catch (InsufficientFundsException | RuntimeException e) {
+        } catch (InsufficientFundsException | IllegalArgumentException | DateTimeException e) {
             transactions = transactionsCopy;
             lastFreeID = copyOfLastFreeId;
             throw new FileFormatException("Incorrect values in the file lines. No transactions were added." +
