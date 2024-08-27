@@ -1,4 +1,4 @@
-package domain;
+package com.data.transactionunit;
 
 public enum TransactionType {
     INCOME,
