@@ -1,7 +1,7 @@
-package com.data.transactionsstoring;
+package com.FinanceTracker.data.transactionsstoring;
 
-import com.data.transactionunit.Transaction;
-import com.exceptions.NoTransactionsException;
+import com.FinanceTracker.data.transactionunit.Transaction;
+import com.FinanceTracker.exceptions.NoTransactionsException;
 
 import java.time.LocalDateTime;
 import java.util.Map;

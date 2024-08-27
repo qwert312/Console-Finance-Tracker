@@ -1,8 +1,8 @@
-package com;
+package com.FinanceTracker;
 
 import java.util.Scanner;
 
-import com.ui.UserInterface;
+import com.FinanceTracker.ui.UserInterface;
 
 public class Program {
     public static void main(String[] args) {

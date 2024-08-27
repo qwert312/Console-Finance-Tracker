@@ -1,7 +1,7 @@
-package com.logic;
+package com.FinanceTracker.logic;
 
-import com.data.transactionunit.TransactionType;
-import com.exceptions.IncorrectInputException;
+import com.FinanceTracker.data.transactionunit.TransactionType;
+import com.FinanceTracker.exceptions.IncorrectInputException;
 
 import java.math.BigDecimal;
 import java.nio.file.InvalidPathException;

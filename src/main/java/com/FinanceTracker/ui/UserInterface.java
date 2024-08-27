@@ -1,9 +1,12 @@
-package com.ui;
+package com.FinanceTracker.ui;
 
-import com.data.transactionunit.Transaction;
-import com.data.transactionunit.TransactionType;
-import com.exceptions.TransactionsFileCreationException;
-import com.exceptions.TransactionsFileFormatException;
+import com.FinanceTracker.data.transactionunit.Transaction;
+import com.FinanceTracker.data.transactionunit.TransactionType;
+import com.FinanceTracker.exceptions.*;
+import com.FinanceTracker.logic.CommandManager;
+import com.FinanceTracker.logic.InputConverter;
+import com.FinanceTracker.exceptions.TransactionsFileCreationException;
+import com.FinanceTracker.exceptions.TransactionsFileFormatException;
 import com.logic.*;
 import com.exceptions.*;
 

@@ -1,9 +1,13 @@
-package com.logic;
+package com.FinanceTracker.logic;
 
-import com.data.transactionsstoring.FileTransactionStorage;
-import com.data.transactionsstoring.RuntimeTransactionStorage;
-import com.data.transactionunit.Transaction;
-import com.data.transactionunit.TransactionType;
+import com.FinanceTracker.exceptions.NoTransactionsException;
+import com.FinanceTracker.exceptions.TransactionsFileCreationException;
+import com.FinanceTracker.exceptions.TransactionsFileFormatException;
+import com.FinanceTracker.data.transactionsstoring.FileTransactionStorage;
+import com.FinanceTracker.data.transactionsstoring.RuntimeTransactionStorage;
+import com.FinanceTracker.data.transactionunit.Transaction;
+import com.FinanceTracker.data.transactionunit.TransactionType;
+import com.FinanceTracker.exceptions.TransactionsFileIsNotAttachedException;
 import com.exceptions.*;
 
 import java.math.BigDecimal;

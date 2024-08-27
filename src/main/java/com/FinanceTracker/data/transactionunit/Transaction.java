@@ -1,4 +1,4 @@
-package com.data.transactionunit;
+package com.FinanceTracker.data.transactionunit;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
