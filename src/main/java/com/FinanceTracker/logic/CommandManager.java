@@ -3,12 +3,11 @@ package com.FinanceTracker.logic;
 import com.FinanceTracker.exceptions.NoTransactionsException;
 import com.FinanceTracker.exceptions.TransactionsFileCreationException;
 import com.FinanceTracker.exceptions.TransactionsFileFormatException;
+import com.FinanceTracker.exceptions.TransactionsFileIsNotAttachedException;
 import com.FinanceTracker.data.transactionsstoring.FileTransactionStorage;
 import com.FinanceTracker.data.transactionsstoring.RuntimeTransactionStorage;
 import com.FinanceTracker.data.transactionunit.Transaction;
 import com.FinanceTracker.data.transactionunit.TransactionType;
-import com.FinanceTracker.exceptions.TransactionsFileIsNotAttachedException;
-import com.exceptions.*;
 
 import java.math.BigDecimal;
 import java.nio.file.Path;
@@ -69,7 +68,7 @@ public class CommandManager {
 
         try {
             TransactionCopier.copyTransactionsBetweenDates(LocalDateTime.MIN, LocalDateTime.MAX,
-                    runtimeTransactionStorage, fileTransactionStorage);;
+                    runtimeTransactionStorage, fileTransactionStorage);
         } catch (NoTransactionsException e) {
             throw new NoTransactionsException("There are no transactions.");
         }

@@ -7,8 +7,6 @@ import com.FinanceTracker.logic.CommandManager;
 import com.FinanceTracker.logic.InputConverter;
 import com.FinanceTracker.exceptions.TransactionsFileCreationException;
 import com.FinanceTracker.exceptions.TransactionsFileFormatException;
-import com.logic.*;
-import com.exceptions.*;
 
 import java.math.BigDecimal;
 import java.nio.file.Path;
@@ -67,7 +65,7 @@ public class UserInterface {
     }
 
     private void enterAndAddTransaction() throws IncorrectInputException {
-        LocalDateTime dateTime = InputConverter.convertDateTime(enterDateTime("transaction"));;
+        LocalDateTime dateTime = InputConverter.convertDateTime(enterDateTime("transaction"));
         System.out.println("Enter the transaction type (INCOME/EXPENSE)");
         TransactionType transactionType = InputConverter.convertTransactionType(scanner.nextLine().trim().toUpperCase());
         System.out.println("Enter the sum of transaction");
