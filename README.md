@@ -1,4 +1,4 @@
-    ## Console Finance Tracker
+## Console Finance Tracker
 
 Simple console Finance Tracker that can track current transactions, display them, add them from files, and save them to files.
 
