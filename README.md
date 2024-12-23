@@ -6,8 +6,8 @@ Simple console Finance Tracker that can track current transactions, display them
 
 The program was created using:
 
-* IntelliJ IDEA 2024.1.4
-* JDK 22.0.2
+* IntelliJ IDEA
+* Java 22
 
 ## Installation and Launch
 

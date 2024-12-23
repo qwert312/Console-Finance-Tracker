@@ -5,3 +5,4 @@ public class IncorrectInputException extends FinanceTrackerException {
         super(message);
     }
 }
+
