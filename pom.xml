@@ -26,6 +26,7 @@
                             <mainClass>com.FinanceTracker.Program</mainClass>
                         </manifest>
                     </archive>
+                    <finalName>console-finance-tracker</finalName>
                 </configuration>
             </plugin>
         </plugins>
